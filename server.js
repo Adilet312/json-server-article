@@ -6,10 +6,6 @@ const server = jsonServer.create();
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 server.use(jsonServer.defaults());
 server.use(jsonServer.bodyParser);
-server.use(jsonServer.rewriter({
-    '/api/*': '/$1',
-    '/blog/:resource/:id/show': '/:resource/:id'
-}))
 // Эндпоинт для логина
 server.post('/login', (req, res) => {
     try {
